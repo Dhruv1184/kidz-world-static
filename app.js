@@ -1,7 +1,7 @@
-var cartValue = document.getElementById("cart-value");
-var cartButton = document.getElementById("cart");
+var cartValue=document.getElementById("cart-value");
+var cartButton=document.getElementById("cart");
 
-var addButtons = document.getElementsByClassName("button");
+var addButtons=document.getElementsByClassName("button");
 
 var items = [
   {
@@ -108,35 +108,29 @@ for (let i = 0; i < addButtons.length; i++) {
 var finalDollars = 0;
 var finalCents = 0;
 
+
 function updatePrice() {
   let totalPriceInCents = 0;
-
-  for (i = 0; i < items.length; i++) {
-    totalPriceInCents =
-      totalPriceInCents +
-      items[i].quantity * (items[i].dollars * 100 + items[i].cents);
+  for (i=0;i<items.length;i++) {
+    totalPriceInCents=totalPriceInCents+items[i].quantity*(items[i].dollars*100+items[i].cents);
   }
-  finalDollars = Math.floor(totalPriceInCents / 100);
-  finalCents = totalPriceInCents % 100;
+  finalDollars =Math.floor(totalPriceInCents/100);
+  finalCents =totalPriceInCents%100;
 }
+
 
 
 cartButton.onclick = () => {
   updatePrice();
 
-
-  for (let i = 0; i < items.length; i++) {
+  for (let i=0;i<items.length;i++) {
     if (items[i].quantity != 0) {
       console.log(
-        "Item name: " +
-          items[i].name +
-          " - Quantity: " +
-          items[i].quantity
+        "Item name: "+items[i].name+" - Quantity: "+items[i].quantity
       );
     }
   }
-
   console.log(
-    "The total amount is " + finalDollars + "$ and " + finalCents + " cents"
+    "The total amount is "+finalDollars+"$ and "+finalCents+" cents"
   );
 };
